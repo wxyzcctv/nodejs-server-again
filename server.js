@@ -44,7 +44,7 @@ var server = http.createServer(function(request, response){
     fs.writeFileSync('./db',newAmout)
     response.setHeader('Content-Type','application/javascript')
     response.write(`
-      amount.innerText = amount.innerText - 1
+      ${query.callback}.call(undefined,'success')
     `)
     response.end()
   }else{
